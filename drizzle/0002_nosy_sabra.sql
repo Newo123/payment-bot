@@ -1,0 +1,1 @@
+CREATE TYPE "public"."type_enum" AS ENUM('DEPOSIT', 'PAYOUT');

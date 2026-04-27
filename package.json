@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsc && tsc-alias",
-    "start": "node ./dist/app.js"
+    "start": "node ./dist/app.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "repository": {
     "type": "git",
@@ -21,14 +25,21 @@
   },
   "homepage": "https://github.com/Newo123/payment-bot#readme",
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "@grammyjs/conversations": "^2.1.1",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "grammy": "^1.42.0",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.3",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.16",
-    "tsconfig-paths": "^4.2.0"
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.3"
   }
 }
