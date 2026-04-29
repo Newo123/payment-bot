@@ -1,4 +1,4 @@
-import { integer, pgEnum, pgTable } from 'drizzle-orm/pg-core'
+import { bigint, integer, pgEnum, pgTable } from 'drizzle-orm/pg-core'
 import { timestamps } from './base'
 import { cardsTable } from './cards'
 import { usersTable } from './users'
@@ -11,7 +11,7 @@ export const transactionsTable = pgTable('transactions', {
     .notNull()
     .references(() => usersTable.id),
   type: typeEnum().notNull(),
-  operationId: integer('operation_id').notNull(),
+  operationId: bigint('operation_id', { mode: 'number' }).notNull(),
   cardId: integer('card_id')
     .notNull()
     .references(() => cardsTable.id),

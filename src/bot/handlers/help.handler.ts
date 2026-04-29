@@ -3,10 +3,6 @@ import { InlineKeyboard, InputFile } from 'grammy'
 import path from 'path'
 
 export async function help(ctx: MyContext) {
-  if (ctx.callbackQuery) {
-    await ctx.answerCallbackQuery().catch(() => {})
-  }
-  await ctx.deleteMessage().catch(() => {})
   const backKeyboard = new InlineKeyboard().text('◀️ Назад', 'back')
 
   const photoPath = path.join(process.cwd(), 'public', '600x400.png')

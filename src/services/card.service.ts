@@ -1,6 +1,6 @@
 import { db } from '@/db'
 import { cardsTable } from '@/db/schema/cards'
-import { eq } from 'drizzle-orm'
+import { eq, sql } from 'drizzle-orm'
 import { Card, CardStatus, InsertCard } from '../types'
 
 type ResponseType = Promise<{
@@ -45,6 +45,15 @@ export class CardService {
   }
   public async findAll() {
     return db.select().from(cardsTable)
+  }
+  public async findRandom() {
+    const [randomCard] = await db
+      .select()
+      .from(cardsTable)
+      .orderBy(sql`RANDOM()`)
+      .limit(1)
+
+    return randomCard
   }
   public async toggleStatus(id: number, status: CardStatus): ResponseType {
     const cardExists = await db

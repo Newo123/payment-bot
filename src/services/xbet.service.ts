@@ -38,7 +38,12 @@ export class XBetService {
 
     const res = await req.json()
 
-    return res as { UserId: number; Name: string; CurrencyId: number }
+    return res as {
+      UserId: number
+      Name: string
+      CurrencyId: number
+      Message?: string
+    }
   }
 
   // Пополнение средств
